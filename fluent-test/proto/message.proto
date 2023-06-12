@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+option go_package = "proto/go;demopb";
+
+package test.message;
+
+import "proto/common.proto";
+import "github.com/envoyproxy/protoc-gen-validate/validate/validate.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+
+message TestRequest {
+  string name = 1 [(validate.rules).string = {min_len : 1, max_len : 33}];
+  int32 age = 2;
+  test.common.CommonMessage common_message = 3;
+  oneof test_oneof {
+    string gaga = 4;
+    int32 haha = 5;
+  }
+  google.protobuf.Timestamp start_time = 6;
+  google.protobuf.StringValue sub_mch_id = 7;
+  map<string, test.common.CommonMessage> attrs = 8;
+  repeated string list = 9;
+  repeated test.common.ResultCode result_code_list = 10;
+  test.common.ResultCode result_code = 11;
+  bytes image = 12;
+  string test = 13;
+  google.protobuf.Timestamp target_time = 14;
+  string test6 = 15;
+}
+
+message TestResponse {
+  string name = 1 [(validate.rules).string = {min_len : 1, max_len : 33}];
+  int32 age = 2;
+  test.common.CommonMessage common_message = 3;
+  oneof test_oneof {
+    string gaga = 4;
+    int32 haha = 5;
+  }
+  google.protobuf.Timestamp start_time = 6;
+  google.protobuf.StringValue sub_mch_id = 7;
+  map<string, test.common.CommonMessage> attrs = 8;
+  repeated string list = 9;
+  repeated test.common.ResultCode result_code_list = 10;
+  test.common.ResultCode result_code = 11;
+  bytes image = 12;
+}

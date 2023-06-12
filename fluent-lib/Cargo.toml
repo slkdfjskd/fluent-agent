@@ -1,0 +1,52 @@
+[package]
+name = "fluent-lib"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+flutter_rust_bridge = "1.64.0"
+flutter_rust_bridge_macros = "1.64.0"
+#reqwest = { version = "0.11.10", features = ["blocking", "json"] }
+
+tokio = { version = "1.18.0", features = ["macros"] }
+
+rusqlite = {version = "0.27.0", features = ["bundled"]}
+lazy_static = "1.4.0"
+home = "0.5.3"
+
+hyper = {version = "0.14.20", features = ["full"]}
+hyper-rustls = { version = "0.23.0", features = ["http2"] }
+tower = "0.4.13"
+
+rustls = { version = "0.20.6", features = ["dangerous_configuration"]}
+
+tonic = { version = "0.7.2", features = ["prost", "tls"] }
+bytes = "1.1.0"
+prost = "0.10.1"
+
+serde = { version = "1.0.137", features = ["derive"] }
+serde_json = "1.0.81"
+serde_derive = "1.0.137"
+
+protobuf-parse = { git = "https://github.com/wangbaolong/rust-protobuf.git", rev = "8bb3a91" }
+protobuf = { git = "https://github.com/wangbaolong/rust-protobuf.git", rev = "8bb3a91" }
+anyhow = "1.0.57"
+
+log = "0.4.17"
+simple_logger = "2.1.0"
+
+regex = "1.6.0"
+chrono = "0.4.19"
+hex = "0.4.3"
+linked-hash-map = "0.5.6"
+
+[build-dependencies]
+tonic-build = "0.7.1"
+
+
+

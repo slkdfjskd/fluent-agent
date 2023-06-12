@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package = "proto/go;demopb";
+
+import "proto/common.proto";
+
+message TestNoPkgRequest {
+  string name = 1;
+  int32 age = 2;
+  test.common.CommonMessage common_message = 3;
+
+  string test4 = 4;
+}
+
+message TextNoPkgResponse {
+  test.common.ResultCode result_code = 1;
+  string name = 2;
+  int32 age = 3;
+}

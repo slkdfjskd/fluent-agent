@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option go_package = "proto/go;demopb";
+
+package test.service;
+
+import "proto/message.proto";
+import "proto/message_no_pkg.proto";
+import "proto/message_same_pkg.proto";
+import "proto/message_stream.proto";
+
+
+service DemoService {
+	// 演示
+	rpc Test(test.message.TestRequest) returns (test.message.TestResponse);
+
+	rpc TestNoPkg(TestNoPkgRequest) returns (TextNoPkgResponse);
+
+	rpc TestSamePkg(test.message.TestSamePkgRequest) returns (test.message.TestSamePkgResponse);
+
+	rpc TestAdd(test.message.TestRequest) returns (test.message.TestResponse);
+
+	rpc ClientStream(stream test.message.StreamRequest) returns (test.message.StreamResponse);
+
+	rpc ServerStream(test.message.StreamRequest) returns (stream test.message.StreamResponse);
+
+	rpc FullStream(stream test.message.StreamRequest) returns (stream test.message.StreamResponse);
+
+	rpc Test2(test.message.TestRequest) returns (test.message.TestResponse);
+}

@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option go_package = "proto/go;demopb";
+
+package test.message;
+
+import "proto/common.proto";
+
+message StreamRequest {
+  string name = 1;
+  test.common.CommonMessage common_message = 2;
+}
+
+message StreamResponse {
+  test.common.ResultCode result_code = 1;
+  string name = 2;
+  int32 age = 3;
+}
+
+

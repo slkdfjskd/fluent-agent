@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option go_package = "proto/go;demopb";
+
+package test.common;
+
+enum ResultCode {
+  OK = 0;
+  // 无效的参数
+  INVALID_ARGUMENT = 1;
+  // 系统内部错误
+  INTERNAL_ERROR = 2;
+}
+
+message CommonMessage {
+  int64 id = 1;
+
+}
