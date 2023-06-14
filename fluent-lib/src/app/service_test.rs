@@ -39,7 +39,7 @@ mod tests {
                 "list":  [
                    
                 ],
-                "resultCode":  "OK",
+                "resultCode":  "INVALID_ARGUMENT",
                 "resultCodeList":  [
                     "OK"
                 ],

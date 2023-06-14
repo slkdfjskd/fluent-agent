@@ -190,7 +190,7 @@ fn parse_req_field_base_type(
                     enum_i = v.value();
                     break;
                 }
-                Ok(None)
+                Ok(Some(ReflectValueBox::Enum(e.clone(), enum_i)))
             },
             |json| {
                 let mut enum_i = -1;
@@ -199,6 +199,7 @@ fn parse_req_field_base_type(
                     name
                 )))?;
                 for v in e.values() {
+                    let vname = v.name();
                     if v.name().eq(e_value) {
                         enum_i = v.value();
                         break;
@@ -210,7 +211,7 @@ fn parse_req_field_base_type(
                         name, e_value
                     )));
                 }
-                Ok(None)
+                Ok(Some(ReflectValueBox::Enum(e.clone(), enum_i)))
             },
         ),
         RuntimeType::Message(m) => {
